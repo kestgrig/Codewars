@@ -1942,3 +1942,107 @@ class Solution {
 
 }
 
+// https://www.codewars.com/kata/55a70521798b14d4750000a4/train/javascript
+
+function greet(name) {
+    return `Hello, ${name} how are you doing today?`;
+}
+
+console.log(greet("Ryan"), "Hello, Ryan how are you doing today?");
+console.log(greet("Shingles"), "Hello, Shingles how are you doing today?");
+
+
+// https://www.codewars.com/kata/56b1f01c247c01db92000076/train/javascript
+
+function doubleChar(str) {
+    let newStr = '';
+    str = str.split("");
+    for (i = 0; i < str.length; i++) {
+        newStr += (str[i].repeat(2));
+        +i;
+    }
+    return newStr;
+}
+
+console.log(doubleChar("abcd"), "aabbccdd");
+console.log(doubleChar("Adidas"), "AAddiiddaass");
+console.log(doubleChar("1337"), "11333377");
+console.log(doubleChar("illuminati"), "iilllluummiinnaattii");
+console.log(doubleChar("123456"), "112233445566");
+console.log(doubleChar("%^&*("), "%%^^&&**((");
+
+// https://www.codewars.com/kata/5556282156230d0e5e000089/train/javascript
+
+function DNAtoRNA(dna) {
+    dna = dna.replaceAll("T", "U");
+    return dna;
+}
+
+console.log(DNAtoRNA("TTTT"), "UUUU")
+console.log(DNAtoRNA("GCAT"), "GCAU")
+console.log(DNAtoRNA("GACCGCCGCC"), "GACCGCCGCC")
+
+// https://www.codewars.com/kata/5966e33c4e686b508700002d/train/javascript
+
+function sumStr(a, b) {
+    a = Number(a);
+    b = Number(b);
+    result = a + b
+    return result.toString();
+}
+
+console.log(sumStr("4", "5"), "9");
+console.log(sumStr("34", "5"), "39");
+
+
+function quarterOf(month) {
+    let ans = 0;
+    if (month === 1 || month === 2 || month === 3) {
+        ans = 1;
+    } else if (month === 4 || month === 5 || month === 6) {
+        ans = 2;
+    } else if (month === 7 || month === 8 || month === 9) {
+        ans = 3;
+    } else if (month === 10 || month === 11 || month === 12) {
+        ans = 4;
+    }
+    return ans;
+}
+
+console.log(quarterOf(3), 1)
+console.log(quarterOf(8), 3)
+console.log(quarterOf(11), 4)
+console.log(quarterOf(5), 2)
+
+
+function warnTheSheep(queue) {
+
+    queue = queue.reverse()
+
+    for (let i = 0; i < queue.length; i++) {
+        if (queue[i + 1] == 'wolf' && queue[i] == 'sheep') {
+            return `Oi! Sheep number ${i + 1}! You are about to be eaten by a wolf!`
+        }
+        else if (queue[i] == 'wolf' && queue[i - 1] == undefined) {
+            return 'Pls go away and stop eating my sheep'
+        }
+    }
+}
+console.log(warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"]),
+    "Oi! Sheep number 2! You are about to be eaten by a wolf!"
+);
+console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"]),
+    "Oi! Sheep number 5! You are about to be eaten by a wolf!"
+);
+console.log(warnTheSheep(["wolf", "sheep", "sheep", "sheep", "sheep", "sheep", "sheep"]),
+    "Oi! Sheep number 6! You are about to be eaten by a wolf!"
+);
+console.log(warnTheSheep(["sheep", "wolf", "sheep"]),
+    "Oi! Sheep number 1! You are about to be eaten by a wolf!"
+);
+console.log(warnTheSheep(["wolf"]),
+    "Pls go away and stop eating my sheep"
+);
+console.log(warnTheSheep(["sheep", "sheep", "wolf"]),
+    "Pls go away and stop eating my sheep"
+);
